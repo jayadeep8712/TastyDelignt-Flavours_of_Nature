@@ -1,6 +1,6 @@
 # TastyDelignt-Flavours_of_Nature-Resturant website
 
-![TastyDelight Logo]((https://github.com/jayadeep8712/TastyDelignt-Flavours_of_Nature/blob/main/img/m.png?raw=true))
+![TastyDelight Logo](https://github.com/jayadeep8712/TastyDelignt-Flavours_of_Nature/blob/main/img/m.png?raw=true)
 
 Welcome to the TastyDelight restaurant website repository! Our website is designed to delight visitors with the artistry of culinary excellence, introduce our talented chefs, and keep everyone informed about upcoming events. This README will guide you through our futuristic, feature-rich website.
 
@@ -54,6 +54,6 @@ This project is licensed under the [MIT License](LICENSE), granting you the free
 
 Join us in creating a delightful online experience for restaurant enthusiasts and developers alike!
 
-![TastyDelight Logo](insert-logo-image-link-here)
+![TastyDelight Logo](https://github.com/jayadeep8712/TastyDelignt-Flavours_of_Nature/blob/main/img/m.png?raw=true)
 
 We look forward to sharing the TastyDelight experience with the world!
