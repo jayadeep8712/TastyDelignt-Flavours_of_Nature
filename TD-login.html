@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TastyDelight - Login & Sign-up</title>
+    <link rel="icon" href="img/m.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+  
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fe6e00dd;
+            color: #fff;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 50%;
+            max-width: 1200px;
+            height: 80%;
+            background: #000;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+            animation: scaleIn 0.5s ease-in-out;
+            transition: scaleIn 1s ease;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+
+            to {
+                transform: scale(1.1);
+            }
+        }
+     
+        .panel {
+            flex: 1;
+            height: 100%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            background-color: rgba(0, 0, 0, 0.8);
+            position: relative;
+        }
+ 
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .input-container {
+            position: relative;
+            margin: 10px 0;
+            width: 100%;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 5%;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(43, 43, 43, 0.784);
+            color: #fff;
+            border-bottom: 2px solid transparent;
+            outline: none;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s, border 0.3s, color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border-bottom: 2px solid #ffffff;
+            box-shadow: 0 0 10px #ffffff93;
+        }
+
+        .input-label {
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            pointer-events: none;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 16px;
+            transform: translateY(-80%);
+            transition: transform 0.3s, font-size 0.3s, color 0.3s;
+        }
+
+       
+        input:focus+.input-label {
+            top: 5px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+    
+        .input-container::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.637);
+            transform: scaleX(0);
+            transform-origin: center right;
+            transition: transform 0.3s ease;
+        }
+
+        input:focus {
+            background-color: rgba(44, 44, 44, 0.855);
+        }
+
+      
+        .l-button {
+            padding: 12px 25px;
+            background-color: transparent;
+            color: #2c2c2c;
+            border-color: #2c2c2c;
+            border: 2px solid #2c2c2c;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s, transform 0.2s;
+            transform-origin: center;
+            outline: none;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .s-button {
+            padding: 12px 25px;
+            background-color: transparent;
+            color: #FE6D00;
+            border-color: #FE6D00;
+            border: 2px solid #FE6D00;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s, transform 0.2s;
+            transform-origin: center;
+            outline: none;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .l-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px #2c2c2c;
+        }
+
+        .s-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px #FE6D00;
+
+        }
+
+
+        h1 {
+            position: relative;
+            font-size: 28px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+
+ 
+        .login-panel {
+            background: url(https://wallpapercave.com/wp/wp2564226.png);
+            background-position-x: 42%;
+            transform: translateX(0%);
+        }
+
+        .login-panel h1 {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+  
+        .signup-panel {
+            background: url(img/bdesign.jpeg);
+            transform: translateX(100%);
+            position: static;
+        }
+
+        .signup-panel h1 {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        .overlay {
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.250);
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            padding: 20px;
+            color: #fff;
+            font-size: 18px;
+            transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            background-image: url('img/wine.jpeg');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+
+        .overlay::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.250);
+            z-index: -1;
+        }
+ 
+        .l-social-icons,
+        .s-social-icons {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .l-social-icons a,
+        .s-social-icons a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 24px;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .l-social-icons a::before {
+            content: attr(data-title);
+            position: absolute;
+            background: #2c2c2c;
+            color: #fff;
+            font-size: 12px;
+            padding: 2px 5px;
+            border-radius: 3px;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(5px);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+
+        .l-social-icons a:hover::before,
+        .s-social-icons a:hover::before {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .s-social-icons a::before {
+            content: attr(data-title);
+            position: absolute;
+            background: rgba(255, 68, 0, 0.54);
+            color: #fff;
+            font-size: 12px;
+            padding: 2px 5px;
+            border-radius: 3px;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(5px);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .panel:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.6);
+        }
+
+     
+        @keyframes fadeInSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        .panel {
+            animation: fadeInSlideUp 0.5s ease forwards;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="panel login-panel">
+            <img src="img/o.png" width="25%" alt="logo">
+            <h1 style="margin-bottom: 30px; color: #2c2c2c;">Login</h1>
+            <form>
+                <div class="input-container">
+                    <input type="text" required id="username">
+                    <label class="input-label" for="username" style="color: #ffffffbb;">Username</label>
+                </div>
+                <div class="input-container">
+                    <input type="password" required id="password">
+                    <label class="input-label" for="password" style="color: #ffffffbb;">Password</label>
+                </div>
+                <button type="submit" class="l-button" id="l-button" onclick="login()">Login</button>
+            </form>
+            <div id="errorMessage" style="color: #ffd000;"></div>
+
+            <div class="l-social-icons">
+                <a href="#" data-title="Facebook" aria-label="Facebook"><i class="fab fa-facebook-f"
+                        style="color: #2c2c2c;"></i></a>
+                <a href="#" data-title="Twitter" aria-label="Twitter"><i class="fab fa-twitter"
+                        style="color: #2c2c2c;"></i></a>
+                <a href="#" data-title="Instagram" aria-label="Instagram"><i class="fab fa-instagram"
+                        style="color: #2c2c2c;"></i></a>
+            </div>
+        </div>
+
+
+        <div class="overlay" onclick="togglePanel()">
+            <div>
+                <h2 style="line-height: 2.5rem; text-align: center;">Switch to Sign Up</h2>
+                <p>Click here to sign up for an account.</p>
+            </div>
+            <div>
+                <h2>Follow Us</h2>
+                <div class="l-social-icons" style="margin-bottom: 15px; ">
+                    <a href="#" data-title="Facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" data-title="Twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" data-title="Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="panel signup-panel">
+            <img src="img/m.png" width="25%" alt="logo">
+            <h1 style="margin-bottom: 30px; color: #FE6D00;">Sign Up</h1>
+            <form>
+                <div class="input-container">
+                    <input type="text" required id="fullname">
+                    <label class="input-label" for="fullname" style="color: #fe6e00db;">Full Name</label>
+                </div>
+                <div class="input-container">
+                    <input type="email" required id="email">
+                    <label class="input-label" for="email" style="color: #FE6D00db;">Email</label>
+                </div>
+                <div class="input-container">
+                    <input type="password" required id="signup-password">
+                    <label class="input-label" for="signup-password" style="color: #FE6D00db;">Password</label>
+                </div>
+                <button type="submit" class="s-button" id="s-button" onclick="signup()">Sign Up</button>
+            </form>
+            <div id="errorMsg" style="color: #ffd000;"></div>
+
+            <div class="s-social-icons">
+                <a href="#" data-title="Facebook" aria-label="Facebook"><i class="fab fa-facebook-f"
+                        style="color: #FE6D00;"></i></a>
+                <a href="#" data-title="Twitter" aria-label="Twitter"><i class="fab fa-twitter"
+                        style="color: #FE6D00;"></i></a>
+                <a href="#" data-title="Instagram" aria-label="Instagram"><i class="fab fa-instagram"
+                        style="color: #FE6D00;"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Particle Animation -->
+    <div id="particles-js"></div>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        value_area: 900
+                    }
+                },
+                color: {
+                    value: '#ffffff'
+                },
+                shape: {
+                    type: 'circle',
+                    stroke: {
+                        width: 0,
+                        color: '#000000'
+                    },
+                    polygon: {
+                        nb_sides: 5
+                    },
+                    image: {
+                        src: 'img/github.svg',
+                        width: 100,
+                        height: 100
+                    }
+                },
+                opacity: {
+                    value: 0.5,
+                    random: false,
+                    anim: {
+                        enable: false,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 5,
+                    random: true,
+                    anim: {
+                        enable: false,
+                        speed: 40,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 170,
+                    color: '#ffffff',
+                    opacity: 0.4,
+                    width: 2
+                },
+                move: {
+                    enable: true,
+                    speed: 6,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false,
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: 'grab'
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: 'push'
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 140,
+                        line_linked: {
+                            opacity: 1
+                        }
+                    },
+                    bubble: {
+                        distance: 400,
+                        size: 40,
+                        duration: 2,
+                        opacity: 8,
+                        speed: 3
+                    },
+                    repulse: {
+                        distance: 200,
+                        duration: 0.4
+                    },
+                    push: {
+                        particles_nb: 4
+                    },
+                    remove: {
+                        particles_nb: 2
+                    }
+                }
+            },
+            retina_detect: true
+        });
+    </script>
+    <!-- End Particle Animation Script -->
+
+    <script>
+        const container = document.querySelector('.container');
+        const loginPanel = document.querySelector('.login-panel');
+        const signupPanel = document.querySelector('.signup-panel');
+        const overlay = document.querySelector('.overlay');
+        let isLoginVisible = true;
+
+        function togglePanel() {
+            if (isLoginVisible) {
+                loginPanel.style.transform = 'translateX(100%)';
+                signupPanel.style.transform = 'translateX(0%)';
+                overlay.style.transform = 'translateX(0%)';
+                isLoginVisible = false;
+            } else {
+                loginPanel.style.transform = 'translateX(0%)';
+                signupPanel.style.transform = 'translateX(100%)';
+                overlay.style.transform = 'translateX(100%)';
+                isLoginVisible = true;
+            }
+        }
+    </script>
+
+    <script>
+        const inputs = container.querySelectorAll('input');
+
+        inputs.forEach(input => {
+            const label = input.nextElementSibling;
+
+            input.addEventListener('focus', () => {
+                label.style.display = 'none';
+            });
+
+            input.addEventListener('blur', () => {
+                if (!input.value) {
+                    label.style.display = 'block';
+                }
+            });
+        });
+    </script>
+
+    <!--<script>
+        // redirect with s-button or l-button
+
+        document.getElementById('l-button').addEventListener('click', function () {
+
+            // Redirect to the loading page first
+            window.location.href = 'http://127.0.0.1:5500/reload.html';
+
+            setTimeout(function () {
+                // Redirect to the home page
+                window.location.href = 'http://127.0.0.1:5500/rough3.html';
+            }, 300);
+        });
+
+        document.getElementById('s-button').addEventListener('click', function () {
+
+            // Redirect to the loading page first
+            window.location.href = 'http://127.0.0.1:5500/reload.html';
+
+            setTimeout(function () {
+                // Redirect to the home page
+                window.location.href = 'http://127.0.0.1:5500/rough3.html';
+            }, 300);
+        });
+    </script>-->
+    <!--<script>
+        // Function to check if the form is valid
+        function isFormValid() {
+            // Get the username and password inputs
+            var usernameInput = document.getElementById('username');
+            var passwordInput = document.getElementById('password');
+    
+            // Check if both inputs have values
+            if (usernameInput.value.trim() !== '' && passwordInput.value.trim() !== '') {
+                return true; // Form is valid
+            } else {
+                return false; // Form is not valid
+            }
+        }
+    
+        // Function to handle the login button click
+        function handleLogin() {
+            // Check if the form is valid
+            if (isFormValid()) {
+                // Redirect to the loading page first
+                window.location.href = 'http://127.0.0.1:5500/reload.html';
+    
+                setTimeout(function () {
+                    // Redirect to the home page
+                    window.location.href = 'http://127.0.0.1:5500/rough3.html';
+                }, 300);
+            } else {
+                // Redirect to the error page
+                window.location.href = 'http://127.0.0.1:5500/error.html';
+            }
+        }
+    
+        // Add a click event listener to the login button
+        document.getElementById('l-button').addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent the default form submission
+            handleLogin(); // Call the handleLogin function
+        });
+    </script>-->
+    <script>
+         const users = [
+            { username: 'adminjai', password: '@welcome', email:'admin@gmail.com' },
+            { username: 'ourfav', password: '@TastyDelight', email:'magicmoments@gmail.com' },
+        ];
+
+        function handleLogin() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            const user = users.find(u => u.username === username && u.password === password);
+
+            if (user) {
+                alert('Login successful! Redirecting to the main page.');
+                window.location.href = 'http://127.0.0.1:5500/TD-Reload.html';
+
+                setTimeout(function () {
+                    window.location.href = 'http://127.0.0.1:5500/TastyDelight-Restro.html';
+                }, 300);
+            } else {
+                document.getElementById('errorMessage').textContent = 'Invalid credentials. Please try again.';
+            }
+        }
+
+        document.getElementById('l-button').addEventListener('click', function (event) {
+            event.preventDefault();  
+            handleLogin(); 
+        });
+
+     
+         function togglePanel() {
+              const loginPanel = document.querySelector('.login-panel');
+              const signupPanel = document.querySelector('.signup-panel');
+              const overlay = document.querySelector('.overlay');
+  
+              if (loginPanel.style.transform === 'translateX(0%)') {
+                  loginPanel.style.transform = 'translateX(100%)';
+                  signupPanel.style.transform = 'translateX(0%)';
+                  overlay.style.transform = 'translateX(0%)';
+              } else {
+                  loginPanel.style.transform = 'translateX(0%)';
+                  signupPanel.style.transform = 'translateX(100%)';
+                  overlay.style.transform = 'translateX(100%)';
+              }
+          }
+
+    /*---------------------------------------------------------------------------------------*/
+
+    
+        function handlesignup() {
+            const username = document.getElementById('fullname').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('signup-password').value;
+ 
+            const user = users.find(u => u.username === username && u.password === password && u.email === email);
+
+            if (user) {
+                 
+                alert('Signup successful! Redirecting to the main page.');
+                window.location.href = 'http://127.0.0.1:5500/TD-Reload.html';
+
+                setTimeout(function () {
+                    window.location.href = 'http://127.0.0.1:5500/TastyDelight-Restro.html';
+                }, 300);
+            } else {
+                document.getElementById('errorMsg').textContent = 'Invalid credentials. Please try again.';
+            }
+        }
+
+        document.getElementById('s-button').addEventListener('click', function (event) {
+            event.preventDefault();  
+            handlesignup(); 
+        });
+
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+</body>
+
+</html>

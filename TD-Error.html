@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/m.png" type="image/x-icon">
+    <title>Oops! Cooking Up Something Awesome</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            overflow: hidden;
+            background: linear-gradient(135deg, #2E3192, #1BFFFF);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff8c00, #ff5733);
+            z-index: -1;
+        }
+
+        #errorContainer {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            padding: 30px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 100%;
+            box-sizing: border-box;
+            transform: scale(1.1);
+            animation: scaleIn 0.5s ease-in-out;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+
+            to {
+                transform: scale(1.1);
+            }
+        }
+
+        #errorIllustration {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+        }
+
+        h2 {
+            color: #e44d26;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        p {
+            color: #333;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        #tryAgainBtn {
+            display: inline-block;
+            padding: 12px 24px;
+            margin-top: 20px;
+            background-color: #e44d26;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-size: 1.3em;
+            border: 2px solid #e44d26;
+        }
+
+        #tryAgainBtn:hover {
+            background-color: #fff;
+            color: #e44d26;
+            transform: scale(1.05);
+        }
+
+        #particles-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1BFFFF, #2E3192);
+            opacity: 0.6;
+            z-index: -1;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="particles-overlay"></div>
+    <div id="particles-js"></div>
+    <div id="errorContainer">
+        <img src="https://cdn-images-1.medium.com/max/800/1*qdFdhbR00beEaIKDI_WDCw.gif" alt="Error Illustration"
+            id="errorIllustration">
+        <h2>Oops! Something went wrong</h2>
+        <p>Uh-oh! You've entered a zone not yet mapped by our futuristic navigation system. The future is vast—let's
+            find your destination together.</p>
+        <a href="#" id="tryAgainBtn">Try Again</a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 600 } },
+                color: { value: ['#fff'] },
+                shape: { type: 'circle', stroke: { width: 0, color: '#000000' }, polygon: { nb_sides: 5 }, image: { src: 'img/github.svg', width: 100, height: 100 } },
+                opacity: { value: 0.5, random: true, anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false } },
+                size: { value: 3.5, random: true, anim: { enable: false, speed: 40, size_min: 0.1, sync: false } },
+                line_linked: { enable: true, distance: 150, color: '#fff', opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 5, direction: 'none', random: false, straight: false, out_mode: 'out', bounce: false, attract: { enable: false, rotateX: 600, rotateY: 1200 } }
+            },
+            interactivity: { detect_on: 'canvas', events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' }, resize: true }, modes: { grab: { distance: 400, line_linked: { opacity: 1 } }, bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 }, repulse: { distance: 200, duration: 0.4 }, push: { particles_nb: 4 }, remove: { particles_nb: 2 } } },
+            retina_detect: true
+        });
+
+        /*--------------------------------------------------------*/
+        
+        document.getElementById('tryAgainBtn').addEventListener('click', function () {
+
+            // Redirect to loading page first
+            window.location.href = 'http://127.0.0.1:5500/TD-Reload.html';
+
+            setTimeout(function () {
+                // Redirect to the home page
+                window.location.href = 'http://127.0.0.1:5500/TastyDelight-Restro.html';
+            }, 300);
+        });
+
+    </script>
+</body>
+
+</html>
+

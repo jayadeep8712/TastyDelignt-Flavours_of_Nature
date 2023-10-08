@@ -1,0 +1,2742 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" href="img/m.png" type="icon/images">
+    <title>Tasty Delight - Flavors of Nature</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #FF5733;
+            border-radius: 15px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #131212;
+        }
+
+        #main-header {
+            background-color: #1B1C1B;
+            color: #fff;
+            padding: 15px 0;
+            text-align: center;
+            position: relative;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin-left: 0 auto;
+            padding: 0 10px;
+
+        }
+
+        .logo img {
+            margin-left: 80%;
+            width: 160px;
+            animation: slideright 2s ease;
+            transition: .3s ease;
+        }
+
+        @keyframes slidetop {
+            0% {
+                transform: translateY(200%);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(0px);
+                opacity: 0;
+            }
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-right: -28%;
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+            position: relative;
+            opacity: 0;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Delay each item */
+        nav ul li:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        nav ul li:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        nav ul li:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        nav ul li:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+
+        nav ul li:nth-child(5) {
+            animation-delay: 1s;
+        }
+
+        nav ul li:nth-child(6) {
+            animation-delay: 1.2s;
+        }
+
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            padding: 5px 20px;
+            font-size: 20px;
+            position: relative;
+            transition: color 0.3s;
+
+        }
+
+        nav ul li a::before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2.3px;
+            background-color: #FF5733;
+            bottom: 0;
+            left: 15%;
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::before {
+            width: 70%;
+
+        }
+
+        .act {
+            color: #FF5733;
+        }
+
+        section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        #menu {
+            background-color: #0e0e0e;
+            background-image: url('#');
+            background-size: cover;
+            color: #fff;
+        }
+
+        #contact {
+            background-color: #1a1a1a;
+            background-image: url('img/contact-bg.jpg');
+            background-size: cover;
+            color: #fff;
+        }
+
+        h1,
+        h2 {
+            font-family: 'Pacifico', cursive;
+            font-weight: bold;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.3;
+            padding: 10px 5px 0 15px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 15px;
+            border: 2px solid #ff4e27;
+            box-shadow: 0 0 10px #ff4e27;
+            border-color: #ff4e27;
+            color: #ff4e27;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            background: transparent;
+            margin-top: 20px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .button:hover {
+            background-color: #ff5832;
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+
+        .menu-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+
+        .menu-item-card {
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
+            width: 300px;
+            margin: 20px;
+            display: inline-block;
+            vertical-align: top;
+            border-radius: 10px;
+            perspective: 1000px;
+        }
+
+        .menu-item-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+            background-color: #ff4d00e4;
+        }
+
+        .menu-item-card img {
+            width: 100%;
+            max-height: 200px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .menu-item-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .menu-item-details {
+            padding: 20px;
+        }
+
+        .menu-item-title {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .menu-item-description {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        .menu-item-rating {
+            color: #FFD700;
+        }
+
+        .menu-item-price {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .order-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #FFA500;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .order-button:hover {
+            background-color: #FF8C00;
+        }
+
+        .menu-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .tab-button {
+            padding: 10px 20px;
+            background-color: #0d0b0b;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .tab-button:hover {
+            border-bottom-width: 2px;
+            border-bottom-style: solid;
+            border-color: orangered;
+        }
+
+        .tab-button.active {
+            border-bottom-width: 2px;
+            border-bottom-style: solid;
+            border-color: orangered;
+        }
+
+        /* i can use the above active also 
+        .active {
+          background-color: #FF8A5B !important;
+        }*/
+
+        /* Hide and show menu categories based on active tab */
+        .menu-category {
+            display: none;
+        }
+
+        .menu-category.active {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        #view-more-button {
+            margin-top: 20px;
+        }
+
+        /* Footer styling */
+        #footer {
+            background-color: #ff5517;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        #footer p {
+            font-size: 14px;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        form div {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        select[id="time"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            appearance: none;
+        }
+
+
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        select[id="time"],
+        input[type="tel"] {
+            border-color: #f96a4a;
+            border-width: 2px;
+        }
+
+
+        button[type="submit"] {
+            background-color: #FF5733;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #FF8A5B;
+        }
+
+        /* Responsive styles */
+        /*  @media (max-width: 768px) {
+            section {
+                padding: 40px 0;
+            }
+
+            h1,
+            h2 {
+                font-size: 30px;
+            }
+
+            .logo {
+                max-width: 30px;
+                /* Adjust the logo size for smaller screens 
+            }*/
+
+        /* Adjust header padding for smaller screens 
+            #main-header {
+                padding: 10px 0;
+            }
+
+            /* Adjust button padding for smaller screens 
+            .button {
+                padding: 8px 16px;
+            }
+        }*/
+
+        .review-gallery {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .review-card {
+            max-width: 400px;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            flex: 1;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            background-color: #ff5f24;
+            color: white;
+        }
+
+        .review-card-inner {
+            display: flex;
+            align-items: center;
+        }
+
+        .review-avatar {
+            flex: 1;
+            padding: 1px;
+        }
+
+        .review-avatar img {
+            border-radius: 15px;
+            width: 265%;
+            scale: 1.13;
+        }
+
+        .review-avatar img:hover {
+            transform: scale(1.5);
+            transition: .3s;
+        }
+
+        .review-content {
+            flex: 3;
+            padding: 30px 65px;
+            transform: translate(50px, 3px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!------------------------------------------------Header------------------------------------------------------>
+
+    <header id="main-header">
+        <nav>
+            <div class="header-content">
+                <div class="logo">
+                    <a href="#home"><img src="img/mod .png" alt="Your Restaurant Logo"></a>
+                </div>
+                <ul>
+                    <li><a href="#home" class="act">Home</a></li>
+                    <li><a href="#aboutus">About Us</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#contact">Reservation</a></li>
+                   
+                    <div class="table" style="transform: translateX(12rem);">
+                        <a class="tab" href="TD-Error.html" style="padding: 10px; text-decoration: none;">FIND YOUR
+                            TABLE</a>
+
+                        <style>
+                            .tab {
+                                display: inline-block;
+                                padding: 15px 25px;
+                                border: 2px solid #ff6600;
+                                color: #ff6600;
+                                border-radius: 6px;
+                                letter-spacing: 1.5px;
+                                font-weight: bold;
+                                background-color: transparent;
+                                position: relative;
+                                overflow: hidden;
+                                box-shadow: 0 0 10px #ff5100;
+                                transition: color 0.3s ease, background-color 0.3s ease, scale 0.3s ease;
+                                width: 100%;
+                                left: -8%;
+                                animation: slideleft 2s ease;
+                                transition: animation .3s ease;
+                            }
+
+                            @keyframes slideleft {
+                                0% {
+
+                                    transform: translateX(100%);
+                                    opacity: 0;
+                                }
+
+                                100% {
+                                    transform: translateX(0);
+                                    opacity: 1;
+                                }
+                            }
+
+                            .tab::before,
+                            .tab::after {
+                                content: "";
+                                position: absolute;
+                                top: 0;
+                                left: -100%;
+                                width: 100%;
+                                height: 100%;
+                                background-color: orangered;
+                                transition: left 0.3s ease;
+                                z-index: -1;
+                            }
+
+                            .tab:hover::before {
+                                left: 0;
+                            }
+
+                            .tab:hover {
+                                color: white;
+                                background: linear-gradient(90deg, #ff6600, #ffaa00);
+                                animation: pulse 1s infinite;
+                            }
+
+                            @keyframes pulse {
+                                0% {
+                                    transform: scale(1);
+                                }
+
+                                50% {
+                                    transform: scale(1.1);
+                                }
+
+                                100% {
+                                    transform: scale(1);
+                                }
+                            }
+                        </style>
+                    </div>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!------------------------------------------------Home------------------------------------------------------>
+
+    <section id="home" class="section">
+        <style>
+            #home {
+                background-color: #ff6c0b;
+                background-image: url('img/hero-slider-1.jpg');
+                background-size: cover;
+                background-position: center;
+                color: #fff;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: transform 20s ease;
+            }
+
+
+            #home h1 {
+                font-family: 'Pacifico', cursive;
+                font-weight: bold;
+                font-size: 48px;
+                margin-bottom: 20px;
+                text-shadow: 2px 2px 4px #ff6c0b;
+                animation: slideTop 1s ease-in-out;
+                transition: 0.3s ease;
+                animation-delay: 1s;
+                opacity: 2;
+
+            }
+
+            @keyframes slideTop {
+                0% {
+                    transform: translateY(100%);
+                    opacity: 0;
+                }
+
+                100% {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+
+            #home p {
+                font-size: 24px;
+                margin-bottom: 15px;
+                transition: 0.3s ease-in-out;
+                opacity: 3;
+                animation: slideTop 1s ease-in-out;
+                animation-delay: 1.5s;
+                transition: 0.3s ease;
+            }
+
+
+            #home .button {
+                font-size: 18px;
+                padding: 15px 30px;
+                opacity: 4;
+                transition: 0.3s ease-in-out;
+                animation: slideTop 1s ease-in-out;
+                animation-delay: 2s;
+                transition: 0.3s ease;
+            }
+
+            .social-icons {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 25px;
+                /*transform: translate(-585px, 60px);*/
+                top: 36%;
+                /*both top and right wors as my transform*/
+                right: 96%;
+                position: fixed;
+                background-color: #1a1a1ae2;
+                border-radius: 60px;
+                padding: 30px 12px;
+                box-shadow: 0 0 10px #000000c2;
+                z-index: 3;
+                transition: .3s ease;
+                animation: slideright 2s ease;
+            }
+
+            @keyframes slideright {
+                0% {
+                    transform: translateX(-100%);
+                    opacity: 0;
+                }
+
+                100% {
+                    transform: translateX(0px);
+                    opacity: 1;
+
+                }
+            }
+
+            .social-icon {
+                font-size: 24px;
+                color: #ffffff;
+            }
+
+            .social-icon:nth-child(1):hover {
+                color: #1D9BF0;
+                transition: .3s;
+                scale: 1.8;
+            }
+
+            .social-icon:nth-child(2):hover {
+                color: #e1306c;
+                transition: .3s;
+                scale: 1.8;
+            }
+
+            .social-icon:nth-child(3):hover {
+                color: #0165E1;
+                transition: .3s;
+                scale: 1.8;
+            }
+
+            .social-icon:nth-child(4):hover {
+                color: #737373;
+                transition: .3s;
+                scale: 1.8;
+            }
+
+            .social-icon:nth-child(5):hover {
+                color: #7289da;
+                transition: .3s;
+                scale: 1.8;
+            }
+
+            .content-text img:hover {
+                animation: pulse 1s infinite;
+            }
+        </style>
+        <div class="content" style="display: flex;">
+            <div class="social-icons">
+                <a class="social-icon" href="#"><i class='bx bxl-twitter bx-tada'></i></a>
+                <a class="social-icon" href="#"><i class='bx bxl-instagram-alt bx-tada'></i></a>
+                <a class="social-icon" href="#"><i class='bx bxl-facebook-circle bx-tada'></i></a>
+                <a class="social-icon" href="#"><i class='bx bxl-github bx-tada'></i></a>
+                <a class="social-icon" href="#"><i class='bx bxl-discord-alt bx-tada'></i></a>
+            </div>
+            <div class="content-text">
+                <img src="img/m.png" alt="logo" width="60%">
+                <h1>Welcome to &#356;asty &#272;elight</h1>
+                <p>Discover a world of culinary delights.</p>
+                <a href="#menu" class="button">View Menu</a>
+            </div>
+
+
+    </section>
+
+    <!---------------------------------------------- About Us----------------------------------------------------->
+
+    <section id="aboutus" class="section">
+        <div class="aboutus-container">
+            <div class="aboutus-content">
+                <h2>About Tasty Delight</h2>
+                <p class="aboutus-intro">Where Culinary Dreams Come True</p>
+                <p class="aboutus-description">At Tasty Delight, we are more than just a restaurant; we are a
+                    culinary experience. Our journey began with a passion for exquisite flavors and a commitment to
+                    delivering exceptional dining experiences.</p>
+                <p class="aboutus-description">Our team of skilled chefs, led by the renowned Chef John Smith,
+                    transforms ordinary ingredients into extraordinary dishes. With each bite, you embark on a journey
+                    through a world of culinary perfection.</p>
+                <p class="aboutus-description">From sizzling appetizers to delectable desserts, every moment at Tasty
+                    Delight is a celebration of taste. Join us and savor the magic of flavors like never before.</p>
+            </div>
+            <div class="design"><img src="img/shape-7.png" alt="design"></div>
+
+            <div><img src="img/shape-9.png" alt="leaf" style=" margin-right: -150px;
+                margin-top: -200px; "></div>
+            <div class="aboutus-image" style="margin-right: 10px;">
+                <img src="https://www.mediterraneanyachtshow.gr/images/stories/com_form2content/p32/f1516/medys-chef-competition.jpg"
+                    alt="Chef 1" style="position: relative;">
+                <p><span style="font-size: 1.7rem;">👨‍🍳</span> Award-winning Chef</p>
+                <p><i class="fas fa-medal"></i> 5-Time Michelin Star Recipient</p>
+            </div>
+        </div>
+
+        <style>
+            .design img,
+            .aboutus-container img {
+                animation: float 4s infinite ease-in-out;
+                transition: opacity .1s ease;
+
+            }
+
+            @keyframes float {
+
+                0%,
+                100% {
+                    transform: translateY(0);
+                }
+
+                50% {
+                    transform: translateY(-15px);
+                }
+            }
+
+            .design {
+                margin-left: -85px;
+                margin-top: 400px;
+            }
+        </style>
+    </section>
+
+    <style>
+        #aboutus {
+
+            background-image: url(img/s2.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+
+        .aboutus-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 0;
+        }
+
+        .aboutus-content {
+            flex: 1;
+            padding: 45px 80px;
+            background-color: #1a1a1a;
+            color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px #000000;
+            text-align: center;
+            margin-left: 80px;
+        }
+
+        .aboutus-content h2 {
+            font-size: 36px;
+            margin-bottom: 5px;
+        }
+
+        .aboutus-intro {
+            font-size: 24px;
+            color: #FF5733;
+            margin-bottom: 10px;
+        }
+
+        .aboutus-description {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .aboutus-image {
+            flex: 1;
+            text-align: center;
+            justify-content: center;
+
+        }
+
+        .aboutus-image img {
+            max-width: 87%;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            border: 10px solid orangered;
+            margin-right: 50px;
+        }
+
+        .aboutus-image p {
+            margin-right: 50px;
+            align-items: center;
+        }
+    </style>
+
+
+    <!----------------------------------------------Our Delicious Menu---------------------------------------------------->
+
+
+    <section id="menu" class="section">
+        <div class="content">
+            <h2>Our Delicious Menu</h2>
+
+            <div class="menu-tabs">
+                <button class="tab-button active" data-category="appetizers">Appetizers</button>
+                <button class="tab-button" data-category="main-courses">Main Courses</button>
+                <button class="tab-button" data-category="snacks">Snacks</button>
+                <button class="tab-button" data-category="desserts">Desserts</button>
+            </div>
+            <div class="menu-items">
+                <!--<h2>Non-Vegetarian Appetizers</h2>-->
+                <div class="menu-category appetizers">
+                    <!--<div>-->
+                    <div class="menu-item-card">
+                        <img src="https://www.freeiconspng.com/uploads/restaurant-food-dish-png-10.png"
+                            alt="Appetizer 1">
+                        <div class="menu-item-details">
+                            <h3 class="menu-item-title">Crispy Chicken Salad</h3>
+                            <p class="menu-item-description"> A tantalizing blend of crispy, golden chicken, fresh
+                                greens, and zesty dressing. A symphony of flavors and textures in every bite.</p>
+                            <div class="menu-item-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa-regular fa-star-half-stroke"></i>
+                            </div>
+                            <p class="menu-item-price">$5.59</p>
+                            <a href="#" class="order-button">Order Now</a>
+                        </div>
+                    </div>
+                    <div class="menu-item-card">
+                        <img src="https://www.pngall.com/wp-content/uploads/9/Delicious-Fried-Chicken.png"
+                            alt="Appetizer 1">
+                        <div class="menu-item-details">
+                            <h3 class="menu-item-title">Chicken Tenders</h3>
+                            <p class="menu-item-description">Tender, juicy chicken strips in a golden, crispy crust – a
+                                mouthwatering classic for dipping and savoring.</p>
+                            <div class="menu-item-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <p class="menu-item-price">$3.99</p>
+                            <a href="#" class="order-button">Order Now</a>
+                        </div>
+                    </div>
+                    <div class="menu-item-card">
+                        <img src="img/a3.png" alt="Appetizer 1">
+                        <div class="menu-item-details">
+                            <h3 class="menu-item-title">Chicken Fry</h3>
+                            <p class="menu-item-description">Succulent chicken pieces marinated to perfection,
+                                deep-fried to a golden crisp, and bursting with savory goodness. </p>
+                            <div class="menu-item-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <p class="menu-item-price">$9.99</p>
+                            <a href="#" class="order-button">Order Now</a>
+                        </div>
+                    </div>
+
+                    <div class="menu-item-card">
+                        <img src="img/a4.png" alt="Appetizer 1">
+                        <div class="menu-item-details">
+                            <h3 class="menu-item-title">Pizza Pulse</h3>
+                            <p class="menu-item-description">Indulge in the ultimate flavor fusion with our Pizza Pulse,
+                                featuring mouthwatering wings and fingers. A delightful combination of savory. </p>
+                            <div class="menu-item-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa-regular fa-star-half-stroke"></i>
+                            </div>
+                            <p class="menu-item-price">$9.75</p>
+                            <a href="#" class="order-button">Order Now</a>
+                        </div>
+                    </div>
+                    <div class="menu-item-card">
+                        <img src="https://i.pinimg.com/originals/bb/41/30/bb4130180c4837041bdb8b54d6d8090e.png"
+                            alt="Appetizer 1">
+                        <div class="menu-item-details">
+                            <h3 class="menu-item-title">Fried Mozzarella Sticks</h3>
+                            <p class="menu-item-description">Irresistibly crispy on the outside, with gooey, melted
+                                cheese on the inside. A delightful combination of crunch and cheesy goodness.</p>
+                            <div class="menu-item-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa-regular fa-star-half-stroke"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <p class="menu-item-price">$8.99</p>
+                            <a href="#" class="order-button">Order Now</a>
+                        </div>
+                    </div>
+                    <!--</div>-->
+                    <!--<div>
+                        <h2>Vegetarian Appetizers</h2>
+                    </div>-->
+                </div>
+
+                <!------------------ Product Cards for Main Courses ----------------->
+                <div class="menu-category main-courses">
+                    <div class="menu-item-card">
+                        <img src="https://www.seekpng.com/png/full/25-255623_plate-png.png" alt="Appetizer 1">
+                        <div class="menu-item-details">
+                            <h3 class="menu-item-title">Appetizer 1</h3>
+                            <p class="menu-item-description">Delightful description of appetizer 1.</p>
+                            <div class="menu-item-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <p class="menu-item-price">$9.99</p>
+                            <a href="#" class="order-button">Order Now</a>
+                        </div>
+                    </div>
+                    <div class="menu-item-card">
+                        <img src="https://www.pngmart.com/files/5/Indian-Food-PNG-Pic.png" alt="Appetizer 1">
+                        <div class="menu-item-details">
+                            <h3 class="menu-item-title">Fried Mozzarella Sticks</h3>
+                            <p class="menu-item-description">Irresistibly crispy on the outside, with gooey, melted
+                                cheese on the inside. A delightful combination of crunch and cheesy goodness.</p>
+                            <div class="menu-item-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa-regular fa-star-half-stroke"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <p class="menu-item-price">$8.99</p>
+                            <a href="#" class="order-button">Order Now</a>
+                        </div>
+                    </div>
+                    <div class="menu-item-card">
+                        <img src="https://i.pinimg.com/originals/e4/46/f3/e446f333d923a61aec2e1b9a3e53a85d.png"
+                            alt="Appetizer 1">
+                        <div class="menu-item-details">
+                            <h3 class="menu-item-title">Fried Mozzarella Sticks</h3>
+                            <p class="menu-item-description">Irresistibly crispy on the outside, with gooey, melted
+                                cheese on the inside. A delightful combination of crunch and cheesy goodness.</p>
+                            <div class="menu-item-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa-regular fa-star-half-stroke"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <p class="menu-item-price">$8.99</p>
+                            <a href="#" class="order-button">Order Now</a>
+                        </div>
+                    </div>
+                    <div class="menu-item-card">
+                        <img src="https://www.seekpng.com/png/full/31-310487_fried-chicken-png.png" alt="Appetizer 1">
+                        <div class="menu-item-details">
+                            <h3 class="menu-item-title">Fried Mozzarella Sticks</h3>
+                            <p class="menu-item-description">Irresistibly crispy on the outside, with gooey, melted
+                                cheese on the inside. A delightful combination of crunch and cheesy goodness.</p>
+                            <div class="menu-item-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa-regular fa-star-half-stroke"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <p class="menu-item-price">$8.99</p>
+                            <a href="#" class="order-button">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!------------- Product Cards for Snacks ---------->
+                <div class="menu-category snacks">
+                    <div class="menu-item-card">
+                        <img src="https://www.freeiconspng.com/uploads/fast-food-banner-png-0.png" alt="Appetizer 1">
+                        <div class="menu-item-details">
+                            <h3 class="menu-item-title">Fried Mozzarella Sticks</h3>
+                            <p class="menu-item-description">Irresistibly crispy on the outside, with gooey, melted
+                                cheese on the inside. A delightful combination of crunch and cheesy goodness.</p>
+                            <div class="menu-item-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa-regular fa-star-half-stroke"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <p class="menu-item-price">$8.99</p>
+                            <a href="#" class="order-button">Order Now</a>
+                        </div>
+                    </div>
+                    <div class="menu-item-card">
+                        <img src="https://th.bing.com/th/id/R.5bb17ee0c3db95358c6a090567757358?rik=hEPX2LinH%2fkugg&riu=http%3a%2f%2fpngimg.com%2fuploads%2fkfc_food%2fkfc_food_PNG20.png&ehk=bwLwF052fIDm4mtd8oacGypwUDbtUuYoIv668JknnSE%3d&risl=&pid=ImgRaw&r=0"
+                            alt="Appetizer 1">
+                        <div class="menu-item-details">
+                            <h3 class="menu-item-title">Fried Mozzarella Sticks</h3>
+                            <p class="menu-item-description">Irresistibly crispy on the outside, with gooey, melted
+                                cheese on the inside. A delightful combination of crunch and cheesy goodness.</p>
+                            <div class="menu-item-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa-regular fa-star-half-stroke"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <p class="menu-item-price">$8.99</p>
+                            <a href="#" class="order-button">Order Now</a>
+                        </div>
+                    </div>
+                    <div class="menu-item-card">
+                        <img src="https://littleindia.ca/wp-content/uploads/2013/10/Mutton-Rolls-Indian-restaurant-near-me.png"
+                            alt="Appetizer 1">
+                        <div class="menu-item-details">
+                            <h3 class="menu-item-title">Fried Mozzarella Sticks</h3>
+                            <p class="menu-item-description">Irresistibly crispy on the outside, with gooey, melted
+                                cheese on the inside. A delightful combination of crunch and cheesy goodness.</p>
+                            <div class="menu-item-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa-regular fa-star-half-stroke"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <p class="menu-item-price">$8.99</p>
+                            <a href="#" class="order-button">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!------------- Product Cards for Desserts ------->
+                <div class="menu-category desserts">
+                    <div class="menu-item-card">
+                        <img src="https://i.pinimg.com/originals/c0/8c/44/c08c44506e1a3295e452fa8077e87610.png"
+                            alt="Appetizer 1">
+                        <div class="menu-item-details">
+                            <h3 class="menu-item-title">Banana Split Chocolate</h3>
+                            <p class="menu-item-description"> Creamy chocolate and ripe bananas together, creating
+                                a luscious treat. Topped with whipped cream, chocolate sauce and cherries, every
+                                bite is a burst of heavenly flavors and textures.</p>
+                            <div class="menu-item-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa-regular fa-star-half-stroke"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <p class="menu-item-price">$4.99</p>
+                            <a href="#" class="order-button">Order Now</a>
+                        </div>
+                    </div>
+                    <div class="menu-item-card">
+                        <img src="https://joycone.com/wp-content/uploads/2020/01/SinglePage_Products_EnjoyABowls.png"
+                            alt="Appetizer 1">
+                        <div class="menu-item-details">
+                            <h3 class="menu-item-title">Waffle Bowls Ice Cream</h3>
+                            <p class="menu-item-description">Irresistibly crispy on the outside, with gooey, melted
+                                cheese on the inside. A delightful combination of crunch and cheesy goodness.</p>
+                            <div class="menu-item-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <p class="menu-item-price">$1.25</p>
+                            <a href="#" class="order-button">Order Now</a>
+                        </div>
+                    </div>
+                    <div class="menu-item-card">
+                        <img src="https://th.bing.com/th/id/R.7b5da3e59808ae4752580eb9f553cd1e?rik=r6ni7ueoOT63DQ&riu=http%3a%2f%2fwww.pngmart.com%2ffiles%2f5%2fDonuts-PNG-HD.png&ehk=6nevejMNmrwLJyHUkpMY%2fGePA6uLfN6WLN8L7uzI4VI%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1"
+                            alt="Appetizer 1">
+                        <div class="menu-item-details">
+                            <h3 class="menu-item-title">Creamy Choclato Donuts</h3>
+                            <p class="menu-item-description">Irresistibly crispy on the outside, with gooey, melted
+                                cheese on the inside. A delightful combination of crunch and cheesy goodness.</p>
+                            <div class="menu-item-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa-regular fa-star-half-stroke"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <p class="menu-item-price">$3.75</p>
+                            <a href="#" class="order-button">Order Now</a>
+                        </div>
+                    </div>
+                    <div class="menu-item-card">
+                        <img src="https://purepng.com/public/uploads/medium/chocolates-in-a-plate-aoy.png"
+                            alt="Appetizer 1">
+                        <div class="menu-item-details">
+                            <h3 class="menu-item-title">Couverture Sweet Chocolate</h3>
+                            <p class="menu-item-description">Irresistibly crispy on the outside, with gooey, melted
+                                cheese on the inside. A delightful combination of crunch and cheesy goodness.</p>
+                            <div class="menu-item-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa-regular fa-star-half-stroke"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <p class="menu-item-price">$3.15</p>
+                            <a href="#" class="order-button">Order Now</a>
+                        </div>
+                    </div>
+                    <div class="menu-item-card">
+                        <img src="https://www.pngall.com/wp-content/uploads/5/Cake-PNG-Pic.png" alt="Appetizer 1">
+                        <div class="menu-item-details">
+                            <h3 class="menu-item-title">Chocolate Strawberry Cake</h3>
+                            <p class="menu-item-description">Irresistibly crispy on the outside, with gooey, melted
+                                cheese on the inside. A delightful combination of crunch and cheesy goodness.</p>
+                            <div class="menu-item-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa-regular fa-star-half-stroke"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <p class="menu-item-price">$5.55</p>
+                            <a href="#" class="order-button">Order Now</a>
+                        </div>
+                    </div>
+                    <div class="menu-item-card">
+                        <img src="https://pngimg.com/uploads/jelly_candies/jelly_candies_PNG52.png" alt="Appetizer 1">
+                        <div class="menu-item-details">
+                            <h3 class="menu-item-title">Flavoured Jelly Candies</h3>
+                            <p class="menu-item-description">Irresistibly crispy on the outside, with gooey, melted
+                                cheese on the inside. A delightful combination of crunch and cheesy goodness.</p>
+                            <div class="menu-item-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa-regular fa-star-half-stroke"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <p class="menu-item-price">$2.00</p>
+                            <a href="#" class="order-button">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button id="view-more-button" class="button">View More</button>
+        </div>
+    </section>
+
+    <!------------------------------------------------Gallary------------------------------------------------------>
+
+    <section class="gallery" id="gallery">
+        <h1>Gallary</h1>
+        <div class="notch" onclick="startMarquee(this)">
+            <p style="text-align: center; font-weight: bold; margin-bottom: 8px; font-size: 1.1rem; ">FLAVORS FOR
+                ROYALTY</p>
+            <img src="img/separator.svg" alt="svg" width="12%"
+                style="display: block; margin: 0 auto; filter: brightness(3); margin-bottom: 30px; ">
+            <h2
+                style="text-align: center; font-size: 3.5rem; font-family: 'Times New Roman', Times, serif; margin-bottom: 15px; color: #ff6831;">
+                We Offer Top Notch</h2>
+            <p style="text-align: center; font-size: calc(1rem + 1px);">Explore Our Culinary Masterpieces!
+                Indulge in a Visual Feast of Exquisite Dishes and Delights.<br>
+                Discover the Artistry of Flavor in Every Image. Savor the Moments, One Image at a Time.
+                Where Every Picture <br> Tells the Story of Our Passion for Food</p>
+        </div>
+
+        <div class="gallery-container">
+            <style>
+                .gallery {
+                    padding: 20px;
+                    position: relative;
+                    background-image: url('img/hero-slider-3.jpg');
+                    background-size: cover;
+                }
+
+                .gallery h1 {
+                    text-align: center;
+                    color: white;
+                    font-size: 2rem;
+                    margin-bottom: 20px;
+                    z-index: 2;
+                }
+
+                .notch {
+                    position: absolute;
+                    top: 20%;
+                    left: 25%;
+                    z-index: 3;
+                    cursor: pointer;
+                    color: #ffffff;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    font-size: 1rem;
+                    text-shadow: 2px 2px 4px black;
+                }
+
+                /* Gallery container styles */
+                .gallery-container {
+                    transform: translateX(-28px);
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                    gap: 20px;
+                    width: 100vw;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+
+                .image-card {
+                    position: relative;
+                    margin-bottom: 20px;
+                    width: 340px;
+                    height: 250px;
+                    overflow: hidden;
+                    border-radius: 15px;
+                    cursor: pointer;
+                    transition: transform 0.5s, box-shadow 0.5s, filter 0.5s;
+                }
+
+                .image-card img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: filter 0.5s;
+                }
+
+
+                .image-card:hover {
+                    transform: scale(1.05);
+                    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+                }
+
+                .image-card:hover img {
+                    filter: brightness(0.7);
+                }
+
+
+                .overlay {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 340px;
+                    height: 250px;
+                    background: rgba(0, 0, 0, 0.7);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    opacity: 0;
+                    transition: opacity 0.3s, transform 0.3s;
+                    transform: scale(0);
+
+                }
+
+
+                .overlay-text {
+                    text-align: center;
+                    color: white;
+                    font-size: 18px;
+                    opacity: 1;
+                    transform: scale(1);
+                    transition: transform 0.3s;
+                }
+
+                .image-card:hover .overlay {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            </style>
+
+            <marquee direction="up" loop class="scroll" scrollamount="10">
+                <!-- Image Card 1 -->
+                <div class="image-card">
+                    <img src="img/dos.jpeg" alt="Image 1">
+                    <div class="overlay">
+                        <p class="overlay-text">Tasty Dosa</p>
+                    </div>
+                </div>
+
+                <!-- Image Card 2 -->
+                <div class="image-card">
+                    <img src="img/bpuri.jpeg" alt="Image 2">
+                    <div class="overlay">
+                        <p class="overlay-text">Bhel Puri</p>
+                    </div>
+                </div>
+
+                <!-- Image Card 3 -->
+                <div class="image-card">
+                    <img src="img/cheese.jpeg" alt="Image 3">
+                    <div class="overlay">
+                        <p class="overlay-text">Cheesy Crunch</p>
+                    </div>
+                </div>
+
+                <!-- Image Card 4 -->
+                <div class="image-card">
+                    <img src="img/chi.jpeg" alt="Image 4">
+                    <div class="overlay">
+                        <p class="overlay-text">Pine Kabab</p>
+                    </div>
+                </div>
+
+                <!-- Image Card 5 -->
+                <div class="image-card">
+                    <img src="img/drink.jpeg" alt="Image 5">
+                    <div class="overlay">
+                        <p class="overlay-text">Lime Drink</p>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <img src="img/psoup.jpeg" alt="Image 6">
+                    <div class="overlay">
+                        <p class="overlay-text">Mushroom Soup</p>
+                    </div>
+                </div>
+            </marquee>
+
+            <!--------------------------------2-------------------------------->
+
+            <marquee direction="down" loop class="scroll" scrollamount="5">
+                <!-- Image Card 6 -->
+                <div class="image-card">
+                    <img src="img/service-2.jpg" alt="Image 7">
+                    <div class="overlay">
+                        <p class="overlay-text">Fried Chicken</p>
+                    </div>
+                </div>
+
+                <!-- Image Card 7 -->
+                <div class="image-card">
+                    <img src="img/col.jpeg" alt="Image 8">
+                    <div class="overlay">
+                        <p class="overlay-text">Chicken Biryani</p>
+                    </div>
+                </div>
+
+                <!-- Image Card 8 -->
+                <div class="image-card">
+                    <img src="img/egg.jpeg" alt="Image 9">
+                    <div class="overlay">
+                        <p class="overlay-text">Egg Ramen</p>
+                    </div>
+                </div>
+
+                <!-- Image Card 9 -->
+                <div class="image-card">
+                    <img src="img/beezer.jpeg" alt="Image 10">
+                    <div class="overlay">
+                        <p class="overlay-text">Beer</p>
+                    </div>
+                </div>
+
+                <!-- Image Card 10 -->
+                <div class="image-card">
+                    <img src="img/jel.jpeg" alt="Image 11">
+                    <div class="overlay">
+                        <p class="overlay-text">Jalebi</p>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <img src="img/ls.jpeg" alt="Image 12">
+                    <div class="overlay">
+                        <p class="overlay-text">Lassi</p>
+                    </div>
+                </div>
+            </marquee>
+
+            <!--------------------------------3-------------------------------->
+
+            <marquee direction="up" loop class="scroll" scrollamount="10">
+                <!-- Image Card 11 -->
+                <div class="image-card">
+                    <img src="img/emy.jpeg" alt="Image 13">
+                    <div class="overlay">
+                        <p class="overlay-text">Spaghetti</p>
+                    </div>
+                </div>
+
+                <!-- Image Card 12 -->
+                <div class="image-card">
+                    <img src="img/limer.jpeg" alt="Image 14">
+                    <div class="overlay">
+                        <p class="overlay-text">lime Rice</p>
+                    </div>
+                </div>
+
+                <!-- Image Card 13 -->
+                <div class="image-card">
+                    <img src="img/fjuice.jpeg" alt="Image 15">
+                    <div class="overlay">
+                        <p class="overlay-text">Fruit Juice</p>
+                    </div>
+                </div>
+
+                <!-- Image Card 14 -->
+                <div class="image-card">
+                    <img src="img/mo.jpeg" alt="Image 16">
+                    <div class="overlay">
+                        <p class="overlay-text">Momos</p>
+                    </div>
+                </div>
+
+                <!-- Image Card 15 -->
+                <div class="image-card">
+                    <img src="img/paner.jpeg" alt="Image 17">
+                    <div class="overlay">
+                        <p class="overlay-text">Mushroom Paneer Tikka</p>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <img src="img/sushi.jpeg" alt="Image 18">
+                    <div class="overlay">
+                        <p class="overlay-text">Sushi</p>
+                    </div>
+                </div>
+            </marquee>
+
+            <!--------------------------------3-------------------------------->
+
+            <marquee direction="down" loop class="scroll" scrollamount="5">
+                <!-- Image Card 16 -->
+                <div class="image-card">
+                    <img src="img/pp.jpeg" alt="Image 19">
+                    <div class="overlay">
+                        <p class="overlay-text">Pani Puri</p>
+                    </div>
+                </div>
+
+                <!-- Image Card 17 -->
+                <div class="image-card">
+                    <img src="img/salad.jpeg" alt="Image 20">
+                    <div class="overlay">
+                        <p class="overlay-text">Salad</p>
+                    </div>
+                </div>
+
+                <!-- Image Card 18 -->
+                <div class="image-card">
+                    <img src="img/service-1.jpg" alt="Image 21">
+                    <div class="overlay">
+                        <p class="overlay-text">Pancakes</p>
+                    </div>
+                </div>
+
+                <!-- Image Card 19 -->
+                <div class="image-card">
+                    <img src="img/smoothe.jpeg" alt="Image 22">
+                    <div class="overlay">
+                        <p class="overlay-text">Smoothie</p>
+                    </div>
+                </div>
+
+                <!-- Image Card 20 -->
+                <div class="image-card">
+                    <img src="img/toping.jpeg" alt="Image 23">
+                    <div class="overlay">
+                        <p class="overlay-text">Cheese Topping</p>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <img src="img/id.jpeg" alt="Image 24">
+                    <div class="overlay">
+                        <p class="overlay-text">Indian Delight</p>
+                    </div>
+                </div>
+            </marquee>
+
+            <!--------------------------------4-------------------------------->
+
+            <marquee direction="up" loop class="scroll" scrollamount="10">
+                <!-- Image Card 21 -->
+                <div class="image-card">
+                    <img src="img/vp.jpeg" alt="Image 25">
+                    <div class="overlay">
+                        <p class="overlay-text">Wada Pav</p>
+                    </div>
+                </div>
+
+                <!-- Image Card 22 -->
+                <div class="image-card">
+                    <img src="img/toms.jpeg" alt="Image 26">
+                    <div class="overlay">
+                        <p class="overlay-text">Tomato Soup</p>
+                    </div>
+                </div>
+
+                <!-- Image Card 23 -->
+                <div class="image-card">
+                    <img src="img/shr.jpeg" alt="Image 27">
+                    <div class="overlay">
+                        <p class="overlay-text">Shrimp Kabab</p>
+                    </div>
+                </div>
+
+                <!-- Image Card 24 -->
+                <div class="image-card">
+                    <img src="img/wine.jpeg" alt="Image 28">
+                    <div class="overlay">
+                        <p class="overlay-text">Wine</p>
+                    </div>
+                </div>
+
+                <!-- Image Card 25 -->
+                <div class="image-card">
+                    <img src="img/ste2.jpeg" alt="Image 29">
+                    <div class="overlay">
+                        <p class="overlay-text">Chicken</p>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <img src="img/pizza.jpeg" alt="Image 30">
+                    <div class="overlay">
+                        <p class="overlay-text">Pizza</p>
+                    </div>
+                </div>
+            </marquee>
+        </div>
+
+    </section>
+    <script>
+        function startMarquee(notch) {
+
+            notch.style.display = 'none';
+
+            const galleryContainer = document.querySelector('.gallery-container');
+            galleryContainer.style.animation = 'scroll 10s linear infinite';
+
+            setTimeout(() => {
+                notch.style.transform = 'scale(0)';
+                notch.style.transition = 'transform 0.5s';
+                notch.style.display = 'block';
+                setTimeout(() => {
+                    notch.style.transform = 'scale(1)';
+                }, 50);
+            }, 5000);
+        }
+    </script>
+
+    <!------------------------------------------------Review------------------------------------------------------>
+
+    <section id="reviews" class="section">
+        <style>
+            #reviews {
+                background: url(img/s2.png);
+                background-repeat: no-repeat;
+                background-size: cover;
+
+            }
+        </style>
+        <div class="content">
+            <h2 style="font-size: 2.8rem;">Customer Reviews</h2>
+            <div class="review-gallery">
+                <div class="rc" style="display: flex;">
+                    <!-- Review Card 1 -->
+
+                    <div class="review-card">
+
+                        <div class="review-card-inner">
+                            <div class="review-avatar">
+                                <img src="img/em.jpeg" alt="User 1"> <!---->
+                            </div>
+                            <div class="review-content">
+                                <h3>&emsp;Elon Reeve Musk <i class='bx bxs-badge-check' style='color:#00bbf7'></i></h3>
+                                <p class="review-rating">&#9733; &#9733; &#9733; &#9733; &#9733;</p>
+                                <p class="review-text">Amazing food and impeccable service! Tasty Delight is my go-to
+                                    restaurant for special occasions.</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="review-card">
+                        <div class="review-card-inner">
+                            <div class="review-avatar">
+                                <img src="img/nm.jpg" alt="User 2">
+                            </div>
+                            <div class="review-content">
+                                <h3>&emsp;Narendra Modi <i class='bx bxs-badge-check' style='color:#00bbf7'></i></h3>
+                                <p class="review-rating">&#9733; &#9733; &#9733; &#9733; &#9734</p>
+                                <p class="review-text">I've never had such delicious food! The flavors are out of this
+                                    world. Highly recommended!</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="review-card">
+                        <div class="review-card-inner">
+                            <div class="review-avatar">
+                                <img src="img/jai.jpg" alt="User 3">
+                            </div>
+                            <div class="review-content">
+                                <h3>&emsp;Jayadeep pendela</h3>
+                                <p class="review-rating">&#9733; &#9733; &#9733; &#9733; &#10031;</p>
+                                <p class="review-text">The food is absolutely incredible! Every dish is a burst of
+                                    flavors, and the presentation is top-notch.</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="review-card">
+                        <div class="review-card-inner">
+                            <div class="review-avatar">
+                                <img src="img/c.jpeg" alt="User 4">
+                            </div>
+                            <div class="review-content">
+                                <h3>&emsp;Sanjeev Kapoor <i class='bx bxs-badge-check' style='color:#00bbf7'></i></h3>
+                                <p class="review-rating">&#9733; &#9733; &#9733; &#9733; &#9734;</p>
+                                <p class="review-text">The food at Tasty Delight is a true culinary masterpiece. Every
+                                    bite is an
+                                    explosion of flavors.</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="review-card">
+                        <div class="review-card-inner">
+                            <div class="review-avatar">
+                                <img src="img/rm.jpg" alt="User 5">
+                            </div>
+                            <div class="review-content">
+                                <h3>&emsp;Rashmika <i class='bx bxs-badge-check' style='color:#00bbf7'></i></h3>
+                                <p class="review-rating">&#9733; &#9733; &#9733; &#9733; &#10031;</p>
+                                <p class="review-text">The food here is a culinary masterpiece! Every bite is an
+                                    explosion of flavors in your mouth.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slider-buttons">
+                    <button id="prev-review-button" class="slider-button" onclick="prevReview()">&lt;</button>
+                    <button id="next-review-button" class="slider-button" onclick="nextReview()">&gt;</button>
+                    <style>
+                        .slider-buttons button {
+                            background-color: white;
+                            color: orangered;
+                            border: 2px solid orangered;
+                            padding: 5px;
+                            border-radius: 5px;
+                            font-weight: bold;
+                        }
+
+                        .slider-buttons button:hover {
+                            background-image: linear-gradient(orangered, #3c3c3c0e);
+                            color: white;
+                            scale: 1.2;
+                        }
+
+                        p.review-rating:hover {
+                            color: gold;
+                        }
+                    </style>
+                </div>
+            </div>
+
+            <button id="add-review-button" class="button">Add Your Review</button>
+        </div>
+    </section>
+
+    <!------------------------------------strengths------------------------------------>
+
+    <section id="strenght" class="strength">
+        <style>
+            .strength {
+                background-image: url('img/hero-slider-2.jpg');
+                background-repeat: no-repeat;
+                background-size: cover;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 85vh;
+            }
+
+            .strengths {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 40px;
+                margin-bottom: 50px;
+            }
+
+            .strength-card {
+                background-color: #212121b1;
+                border-radius: 10px;
+                box-shadow: 0 0 10px #ffffff;
+                overflow: hidden;
+                max-width: 300px;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .strength-card .strength-image {
+                transition: opacity 0.4s ease-in-out, transform 0.5s ease-in-out, filter 0.3s ease-in-out;
+                opacity: 1;
+                filter: brightness(3);
+            }
+
+            .strength-card:hover .strength-image {
+                animation: zoom-rotate 0.4s ease-in-out;
+            }
+
+            @keyframes zoom-rotate {
+
+                0%,
+                100% {
+                    transform: scale(1.2) rotate(0deg);
+                    filter: brightness(1.2);
+                    opacity: 0;
+                    filter: brightness(3);
+                }
+
+                25% {
+                    transform: scale(1.0) rotate(90deg);
+                    filter: brightness(1.0);
+                    opacity: 1;
+                    filter: brightness(3);
+                }
+
+                50% {
+                    transform: scale(0.8) rotate(180deg);
+                    filter: brightness(0.8);
+                    opacity: 0;
+                    filter: brightness(3);
+                }
+
+                75% {
+                    transform: scale(0.6) rotate(270deg);
+                    filter: brightness(1);
+                    opacity: 1;
+                    filter: brightness(3);
+                }
+
+            }
+
+            /*.strength-card:hover {
+            transform: scale(1.05); /* Increase size on hover 
+            }*/
+
+            .strength-image {
+                max-width: 100%;
+                height: auto;
+                border-radius: 10px 10px 0 0;
+                margin-top: 20px;
+                padding-bottom: 30px;
+                filter: brightness(1);
+            }
+
+            .strength-content {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+
+            .strength-title {
+                font-size: 24px;
+                margin-bottom: 10px;
+                color: #ffffff;
+            }
+
+            .strength-text {
+                font-size: 18px;
+                color: #c8c8c8;
+                padding: 0 20px 0 20px;
+                opacity: 0;
+                animation: slidebottom 1s ease-in-out forwards;
+                transition: .3s ease-in-out;
+            }
+
+            @keyframes slidebottom {
+                0% {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+
+                100% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        </style>
+        <h1 style="text-align: center; padding-bottom: 35px; font-size: 50px; color: white;">Our Strength</h1>
+        <div class="strengths">
+            <div class="strength-card">
+                <img src="img/features-icon-1.png" alt="Hygienic Food" class="strength-image">
+                <div class="strength-content">
+                    <h4 class="strength-title">Hygienic Food</h4>
+                    <p class="strength-text">
+                        At Tasty Delight, we maintain the highest standards of hygiene in our kitchen to serve you the
+                        safest and most delicious dishes.
+                    </p>
+                </div>
+            </div>
+
+            <div class="strength-card">
+                <img src="img/features-icon-2.png" alt="Fresh Environment" class="strength-image">
+                <div class="strength-content">
+                    <h4 class="strength-title">Fresh Environment</h4>
+                    <p class="strength-text">
+                        Our restaurant provides a cozy setting for a memorable culinary journey, perfect for enjoying
+                        meals with friends, family, or on a romantic date.
+                    </p>
+                </div>
+            </div>
+
+            <div class="strength-card">
+                <img src="img/features-icon-3.png" alt="Impeccable Service" class="strength-image">
+                <div class="strength-content">
+                    <h4 class="strength-title">Impeccable Service</h4>
+                    <p class="strength-text">
+                        Our restaurant prioritizes excellent service, with our friendly and attentive staff dedicated to
+                        providing a seamless dining experience.
+                </div>
+            </div>
+
+            <div class="strength-card">
+                <img src="img/features-icon-4.png" alt="Passionate Chefs" class="strength-image">
+                <div class="strength-content">
+                    <h4 class="strength-title">Passionate Chefs</h4>
+                    <p class="strength-text">
+                        Our chefs are dedicated to their craft, constantly innovating and creating unique dishes using
+                        only the finest ingredients among all.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!------------------------------------Upcomming-Events--------------------------------------->
+
+    <section id="up-events">
+        <style>
+            #up-events {
+                font-family: Arial, sans-serif;
+                /*background-color: #ff4800;*/
+                background-image: url(img/bgupevts.png);
+                background-position: center;
+                background-size: cover;
+                color: #fff;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+            }
+
+            .events-section {
+                text-align: center;
+                padding: 50px;
+                /*background-image: linear-gradient(45deg, #ffbe27d0, #ffffff91 );*/
+                /*background: radial-gradient(circle, #ffc94b, #ffffff, #ffd700);*/
+                /*background: radial-gradient(circle, #202020, #ffffff, #202020);*/
+                background-image: url(img/continf.jpg);
+                background-position: center;
+                background-size: cover;
+                border-radius: 20px;
+            }
+
+            .event-card {
+                background-color: #1a1a1a;
+                background-size: cover;
+                background-position: center;
+                border-radius: 20px;
+                padding: 40px;
+                margin: 20px;
+                display: inline-block;
+                width: 400px;
+                position: relative;
+                overflow: hidden;
+                cursor: pointer;
+                transform: scale(1);
+                transition: transform 0.3s, box-shadow 0.3s, filter 1s, animation .3s;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .event-card:hover {
+                transform: scale(1.05);
+                box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
+                filter: brightness(1.3);
+                rotate: 720deg;
+                transition: rotate .3s ease;
+            }
+
+            .card-decoration {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: radial-gradient(#ffb3007a, transparent);
+                /*#ffd981e1*/
+                pointer-events: none;
+                z-index: -1;
+                border: 2px solid transparent;
+            }
+
+            .card-decoration.top-left {
+                top: 0;
+                left: 0;
+                border-image-source: linear-gradient(to bottom right, #ffb30085, transparent);
+                /*#ffd981b7*/
+                border-image-slice: 1;
+            }
+
+            .card-decoration.top-right {
+                top: 0;
+                right: 0;
+                clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
+                border-image-source: linear-gradient(to bottom left, #ffb30085, transparent);
+                border-image-slice: 1;
+            }
+
+            .card-decoration.bottom-left {
+                bottom: 0;
+                left: 0;
+                clip-path: polygon(100% 0%, 100% 100%, 0% 100%);
+                border-image-source: linear-gradient(to top right, #ffb30085, transparent);
+                border-image-slice: 1;
+            }
+
+            .card-decoration.bottom-right {
+                bottom: 0;
+                right: 0;
+                clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
+                border-image-source: linear-gradient(to top left, #ffb30085, transparent);
+                border-image-slice: 1;
+            }
+
+            .event-title {
+                font-size: 24px;
+                margin-bottom: 20px;
+                margin-top: 50px;
+            }
+
+            .event-date {
+                font-size: 18px;
+                margin-bottom: 10px;
+                background-color: #0000005c;
+                padding: 5px;
+                border-radius: 10px;
+            }
+
+            .event-description {
+                font-size: 16px;
+                margin-top: 20px;
+                color: #fff;
+            }
+
+            .countdown {
+                font-size: 32px;
+                margin-top: 10px;
+                color: #f0f0f0;
+                background-color: #000000ad;
+                padding: 10px;
+                border-radius: 10px;
+                display: inline-block;
+            }
+
+            .countdown-timer {
+                font-size: 24px;
+                margin-top: 10px;
+                color: #fff;
+            }
+
+            .event-card .event-description::after {
+                content: "";
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), transparent);
+                transform: scaleX(0);
+                transform-origin: left;
+                transition: transform 0.3s ease-in-out;
+            }
+
+            .event-card:hover .event-description::after {
+                transform: scaleX(1);
+            }
+        </style>
+
+        <div class="events-section">
+            <h1>Upcoming Events</h1>
+            <div class="event-card animated" style="background-image: url('img/winevent.jpeg');">
+                <div class="card-decoration top-left"></div>
+                <div class="card-decoration top-right"></div>
+                <div class="card-decoration bottom-left"></div>
+                <div class="card-decoration bottom-right"></div>
+                <h1 class="event-title">Wine Tasting Night</h1>
+                <div class="event-date">Date: December 15, 2023</div>
+                <p class="event-description">Embark on a journey through exquisite wine flavors and aromas. Join our
+                    Wine
+                    Tasting Night to discover secrets behind each bottle, expertly guided by sommeliers. An
+                    unforgettable
+                    evening awaits, filled with delightful pairings and lasting memories.</p>
+                <div class="countdown">
+                    Event ends in:
+                    <div class="countdown-timer" id="countdown1">00:00:00</div>
+                </div>
+            </div>
+            <div class="event-card animated" style="background-image: url('img/ljp.jpeg'); ">
+                <div class="card-decoration top-left"></div>
+                <div class="card-decoration top-right"></div>
+                <div class="card-decoration bottom-left"></div>
+                <div class="card-decoration bottom-right"></div>
+                <h1 class="event-title">Live Jazz Performance</h1>
+                <div class="event-date">Date: January 20, 2024</div>
+                <p class="event-description">Join us for a mesmerizing evening of smooth jazz and soulful melodies. Get
+                    ready to be enchanted by the enchanting tunes of our talented jazz musicians. It's a night of music,
+                    laughter, and unforgettable moments.RSVP today to secure your spot!</p>
+                <div class="countdown">
+                    Event ends in:
+                    <div class="countdown-timer" id="countdown2">00:00:00</div>
+                </div>
+            </div>
+            <div class="event-card animated" style="background-image: url('img/sgee.jpeg');"> <!--30%-->
+                <div class="card-decoration top-left"></div>
+                <div class="card-decoration top-right"></div>
+                <div class="card-decoration bottom-left"></div>
+                <div class="card-decoration bottom-right"></div>
+                <h1 class="event-title">Spectacular Gala Night</h1>
+                <div class="event-date">Date: March 5, 2024</div>
+                <p class="event-description">Prepare for an unforgettable evening at our Spectacular Gala Night,
+                    featuring
+                    world-class cuisine and entertainment that will dazzle your senses. Don't miss this chance to be a
+                    part
+                    of a truly Spectacular Gala Night. Join us for an evening of glamour.</p>
+                <div class="countdown">
+                    Event ends in:
+                    <div class="countdown-timer" id="countdown3">00:00:00</div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+
+            const event1EndTime = new Date('2023-12-15T23:59:59Z');
+            const event2EndTime = new Date('2024-01-20T23:59:59Z');
+            const event3EndTime = new Date('2024-03-05T23:59:59Z');
+
+            function updateCountdown(timerElement, endTime) {
+                const now = new Date().getTime();
+                const distance = endTime - now;
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                timerElement.textContent = `${days.toString().padStart(2, '0')}:${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                if (distance < 0) {
+                    timerElement.textContent = 'Event Ended';
+                }
+            }
+
+            setInterval(() => {
+                updateCountdown(document.getElementById('countdown1'), event1EndTime);
+                updateCountdown(document.getElementById('countdown2'), event2EndTime);
+                updateCountdown(document.getElementById('countdown3'), event3EndTime); // Add this line
+            }, 1000);
+
+        </script>
+
+    </section>
+
+    <!-----------------------------------------------Our-Chefs----------------------------------------------------->
+
+    <section class="chef-section">
+        <style>
+            .chef-section {
+                font-family: Arial, sans-serif;
+                background: url(img/testimonial-bg.jpg);
+                color: #fff;
+                text-align: center;
+                padding: 80px 0;
+                height: 100vh;
+            }
+
+            .chef-title {
+                font-size: 48px;
+                margin-bottom: 40px;
+            }
+
+            .chef-card {
+                background-color: #c6c6c654;
+                border-radius: 20px;
+                padding: 25px;
+                margin: 20px;
+                display: inline-block;
+                width: 300px;
+                position: relative;
+                transition: transform 0.3s ease-in-out;
+                cursor: pointer;
+            }
+
+            .chef-card:hover {
+                transform: scale(1.05);
+            }
+
+            .chef-image {
+                border-radius: 50%;
+                width: 170px;
+                height: 170px;
+                object-fit: cover;
+                margin: 0 auto 20px;
+            }
+
+            .chef-name {
+                font-size: 32px;
+                margin-bottom: 10px;
+            }
+
+            .chef-specialty {
+                font-size: 24px;
+            }
+
+            .chef-description {
+                font-size: 18px;
+                margin-top: 20px;
+            }
+
+            .chef-card::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                /*background-color: #ff4400cd;*/
+                background-image: linear-gradient(45deg, #ff4400ef, #ffd90075);
+                border-radius: 20px;
+                opacity: 0.8;
+                z-index: -1;
+            }
+        </style>
+        <h1 class="chef-title">Meet Our Talented Chefs</h1>
+        <div class="chef-card">
+            <img class="chef-image"
+                src="https://images.pixexid.com/a-4k-ultra-hd-wallpaper-of-a-tiger-dressed-in-a-chefs-outfit-holding-a-spatula-qq8byzma.jpeg"
+                alt="Chef 1"><!--https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y2hlZnxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80-->
+            <div class="chef-name">Chef John Doe</div>
+            <div class="chef-specialty">Mediterranean Cuisine</div>
+            <p class="chef-description">Elevating your dining experience with the vibrant flavors of Mediterranean
+                cuisine, Chef John Doe infuses each dish with a taste of sun-soaked coastal regions.</p>
+        </div>
+        <div class="chef-card">
+            <img class="chef-image"
+                src="https://images.pixexid.com/a-4k-ultra-hd-wallpaper-of-a-wolf-dressed-in-a-chefs-uniform-wearing-a-tall-ch-aedtpq0g.jpeg"
+                alt="Chef 2"><!--https://media.istockphoto.com/id/1408797987/photo/chef-decorating-a-plate-while-working-in-the-kitchen-at-a-restaurant.webp?b=1&s=170667a&w=0&k=20&c=051trCkQfpVapBF2QVgpL0Hm-OftxJt1zzR-5Jgwj8A=-->
+            <div class="chef-name">Chef Jane Smith</div>
+            <div class="chef-specialty">Asian Fusion</div>
+            <p class="chef-description">A culinary artist in the world of Asian Fusion, Chef Jane Smith crafts dishes
+                that harmonize diverse Asian flavors, creating an exquisite fusion of taste, beauty and culture.</p>
+        </div>
+        <div class="chef-card">
+            <img class="chef-image"
+                src="https://img.freepik.com/premium-photo/cat-chef-s-hat-is-standing-some-food_281348-2716.jpg"
+                alt="Chef 3"><!--https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y2hlZnxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80-->
+            <div class="chef-name">Chef Johnson</div>
+            <div class="chef-specialty">Italian Delights</div>
+            <p class="chef-description">Indulge in the essence of Italy as Chef Michael Johnson brings the rich heritage
+                of Italian cuisine to your table, creating delectable dishes steeped in tradition and love.</p>
+        </div>
+
+        <div class="chef-card">
+            <img class="chef-image" src="https://img.freepik.com/premium-photo/chef-dog-cooking_670382-115218.jpg"
+                alt="Chef 3"><!--https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZMoQHZixzEkh3rSobCnCv9w6iGJc0jTYBFuSCIKCU5K9u9LT7tJpyCQYxZujN8Ce_KHE&usqp=CAU-->
+            <div class="chef-name">Chef Emily</div>
+            <div class="chef-specialty">French Delights</div>
+            <p class="chef-description">Chef Emily Rodriguez is a culinary visionary, turning every meal into an
+                avant-garde masterpiece that delights the senses and challenges the culinary norms.</p>
+        </div>
+    </section>
+
+    <!------------------------------------Contact-info--------------------------------------->
+
+    <section class="contact-info">
+        <img src="https://cdn.dribbble.com/users/3743368/screenshots/12391929/media/9ccee50b431079df3c4b71c3129c84dd.gif"
+            width="30%" alt="custom-image" class="custom-img"
+            style="border-radius: 50% 30% 30% 50%;  clip-path: polygon(0 10%, 20% 0, 40% 10%, 60% 0, 80% 10%, 100% 0, 100% 100%, 0% 100%, 0% 150%, 0% 200%); filter: grayscale(100%); transition: filter 0.3s; ">
+        <style>
+            .contact-info .custom-img:hover {
+                filter: grayscale(0%) !important;
+                transition: .3s;
+            }
+
+            .custom-img {
+                animation: floatAnimation 1s ease infinite;
+                transition: transform 1s;
+
+            }
+
+            @keyframes floatAnimation {
+                0% {
+                    transform: translateY(0);
+                }
+
+                50% {
+                    transform: translateY(-10px);
+                }
+
+                100% {
+                    transform: translateY(0);
+                }
+            }
+
+            .contact-info {
+                background-image: url(https://wallpapers.com/images/hd/aesthetic-white-background-ln2w60lemyzdfvlb.jpg);
+                background-size: cover;
+                gap: 20%;
+                transition: transform 0.3s;
+            }
+
+            .contact-info h2:hover {
+                color: #5c5c5c;
+            }
+
+            address p {
+                color: white;
+                font-size: 20px;
+            }
+
+            address p:hover {
+                transition: scale .6s ease;
+                scale: 1.1;
+                text-shadow: 0 0 10px black;
+            }
+
+            address a:hover {
+                color: white !important;
+            }
+        </style>
+
+        <br><br>
+        <h2>Contact Information</h2>
+        <address style="display: flex; align-items: center; justify-content: center; gap: 30px;">
+            <div style="background-color: #0000006f; border-radius: 10px; padding: 50px;">
+                <p><strong>Location</strong><br> Jwala Residency ft.no:103, Nellore, India</p>
+                <p><a href="mailto:jayadeeppendela@gmail.com"
+                        style="text-decoration: none; color: white ;"><strong>Email</strong><br>
+                        jayadeeppendela@gmail.com</a></p>
+                <p><strong>Mobile</strong><br> +91 (871) 215-3520</p>
+            </div>
+            <div style="background-color: #0000006f; border-radius: 10px; padding: 50px;">
+                <p><strong>Breakfast Time</strong><br>
+                    Monday to Sunday
+                    7.30 am - 9.00pm
+                </p>
+                <p><strong>Lunch Time</strong><br>
+                    Monday to Sunday
+                    11.00 am - 2.30pm
+                </p>
+                <p><strong> Dinner Time</strong><br>
+                    Monday to Sunday
+                    05.00 pm - 10.00pm</p>
+            </div>
+        </address>
+
+    </section>
+
+
+    <!---------------------------------------Contact Us----------------------------------------->
+
+
+    <section id="contact" class="section">
+        <h2>Book Your Table</h2>
+        <p>Booking request +91-871-2153520 or fill out the order form</p><br>
+        <form id="contact-form">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div>
+                <label for="phone">Phone.no:</label>
+                <input type="tel" id="tel" name="tel" placeholder="+91" required>
+            </div>
+
+            <div>
+                <label for="date">Reservation Date:</label>
+                <input type="date" id="date" name="date" placeholder="Reservation Date" required>
+            </div>
+
+            <div>
+                <label for="time">Reservation Time:</label>
+                <select id="time" name="time" required placeholder="Reservation Time">
+                    <option value="12:00 PM">12:00 PM</option>
+                    <option value="1:00 PM">1:00 PM</option>
+                    <option value="7:00 PM">7:00 PM</option>
+                    <option value="8:00 PM">8:00 PM</option>
+                </select>
+            </div>
+
+            <button type="submit" class="button">Submit</button>
+        </form>
+
+    </section>
+
+
+    <!-----------------------------------emoji-rating-system------------------------------------->
+
+
+    <section class="emoji-rating-sys">
+        <style>
+            h1 {
+                margin: 20px 0;
+            }
+
+            #emoji-rating {
+                font-size: 36px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 1px;
+            }
+
+            .emoji-container {
+                cursor: pointer;
+                transition: transform 0.2s, opacity 0.2s;
+                user-select: none;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 10px;
+            }
+
+            .emoji {
+                font-size: 35px;
+            }
+
+            .emoji-text {
+                font-size: 15px;
+                color: transparent;
+            }
+
+            .emoji-container:hover {
+                transform: scale(1.2);
+            }
+
+            .bounce {
+                animation: bounce 0.5s infinite;
+            }
+
+            @keyframes bounce {
+
+                0%,
+                20%,
+                50%,
+                80%,
+                100% {
+                    transform: translateY(0);
+                }
+
+                40% {
+                    transform: translateY(-30px);
+                }
+
+                60% {
+                    transform: translateY(-15px);
+                }
+            }
+
+            #rating-label {
+                font-size: 16px;
+                font-weight: bold;
+                margin-top: -10px;
+                color: #313131;
+            }
+
+            #reset-button {
+                background-color: transparent;
+                border: 2px solid orangered;
+                color: orangered;
+                padding: 10px 17px;
+                font-size: 16px;
+                border-radius: 5px;
+                cursor: pointer;
+                margin-top: 7px;
+                transition: .5s;
+            }
+
+            #reset-button:hover {
+                background-color: #ff5100;
+                color: white;
+                border: 3px solid #fd7a4b;
+                transition: .5s;
+            }
+
+            .burst {
+                position: absolute;
+                display: none;
+                font-size: 36px;
+                animation: burst 0.5s ease-in-out;
+                pointer-events: none;
+            }
+
+            @keyframes burst {
+                0% {
+                    transform: scale(1);
+                    opacity: 1;
+                }
+
+                100% {
+                    transform: scale(3.5);
+                    opacity: 0;
+                }
+            }
+        </style>
+
+        <h1>Rate the Moment</h1>
+        <div id="emoji-rating">
+            <div class="emoji-container" id="emoji1">
+                <span class="emoji">😢</span>
+                <span class="emoji-text">Sad</span>
+            </div>
+            <div class="emoji-container" id="emoji2">
+                <span class="emoji">😐</span>
+                <span class="emoji-text">Neutral</span>
+            </div>
+            <div class="emoji-container" id="emoji3">
+                <span class="emoji" style="margin-right: -10px;">😊</span>
+                <span class="emoji-text">Happy</span>
+            </div>
+            <div class="emoji-container" id="emoji4">
+                <span class="emoji" style="margin-right: 20px;">😄</span>
+                <span class="emoji-text">Very Happy</span>
+            </div>
+            <div class="emoji-container" id="emoji5">
+                <span class="emoji" style="margin-left: -50px;">😍</span>
+                <span class="emoji-text">In Love</span>
+            </div>
+
+            <!--------------------------------Scroll button to top---------------------------------------->
+
+            <div id="scroll-to-top">&#8593;</div>
+            <style>
+                #scroll-to-top {
+                    position: fixed;
+                    bottom: 80px;
+                    right: 40px;
+                    background-color: #ff6200a6;
+                    color: #fff;
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 24px;
+                    cursor: pointer;
+                    box-shadow: 0 4px 8px #00000033;
+                    transition: background-color 0.3s, transform 0.3s;
+                }
+
+                #scroll-to-top:hover {
+                    background-color: #ff5900;
+                    transform: scale(1.1);
+                    box-shadow: 0 0 15px #ff5900;
+                }
+            </style>
+            <script>
+                // JavaScript to handle the scroll-to-top button
+                const scrollToTopButton = document.getElementById('scroll-to-top');
+
+
+                scrollToTopButton.addEventListener('click', () => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 100) {
+                        scrollToTopButton.style.display = 'block';
+                    } else {
+                        scrollToTopButton.style.display = 'none';
+                    }
+                });
+            </script>
+        </div>
+
+        <p id="rating-label">Rate this moment:</p>
+        <button id="reset-button">Reset</button><br><br>
+        <p style="font-size: 15px;">Made with &#128150; by <span
+                style="color: #e23232; font-weight: bold;">Jayadeeppendela</span></p>
+
+        <script>
+
+            const emojiContainers = document.querySelectorAll('.emoji-container');
+            const ratingLabel = document.getElementById('rating-label');
+            const resetButton = document.getElementById('reset-button');
+
+            emojiContainers.forEach(emojiContainer => {
+                emojiContainer.addEventListener('mouseenter', () => {
+                    emojiContainers.forEach(container => {
+                        container.classList.remove('selected');
+                        container.style.opacity = '0.5';
+                    });
+                    emojiContainer.style.opacity = '1';
+                });
+
+                emojiContainer.addEventListener('click', () => {
+                    emojiContainers.forEach(container => container.classList.remove('selected'));
+                    emojiContainer.classList.add('selected');
+                    ratingLabel.textContent = `You rated this moment as: ${emojiContainer.querySelector('.emoji').textContent}`;
+
+                    emojiContainer.querySelector('.emoji').classList.add('bounce');
+
+                    const newBurst = document.createElement('div');
+                    newBurst.className = 'burst';
+                    newBurst.style.left = `${emojiContainer.getBoundingClientRect().left}px`;
+                    newBurst.style.top = `${emojiContainer.getBoundingClientRect().top}px`;
+                    newBurst.textContent = emojiContainer.querySelector('.emoji').textContent;
+                    document.body.appendChild(newBurst);
+
+                    setTimeout(() => {
+                        newBurst.style.display = 'block';
+                        setTimeout(() => {
+                            newBurst.style.display = 'none';
+                        }, 500);
+                    }, 100);
+                });
+            });
+
+            resetButton.addEventListener('click', () => {
+                emojiContainers.forEach(container => {
+                    container.classList.remove('selected');
+                    container.style.opacity = '1';
+                    container.querySelector('.emoji').classList.remove('bounce');
+                });
+                ratingLabel.textContent = 'Rate this moment:';
+            });
+
+        </script>
+    </section>
+
+
+    <!----------------------------------------Footer------------------------------------------>
+
+
+    <footer id="footer">
+        <p>&copy; 2023 &#356;asty &#272;elight. All Rights Reserved.</p>
+    </footer>
+
+
+    <script>
+        // JavaScript for Review Slider
+        const reviewCards = document.querySelectorAll('.review-card');
+        let currentReview = 0;
+
+        function showReview(reviewIndex) {
+            reviewCards.forEach((card, index) => {
+                if (index === reviewIndex) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        showReview(currentReview);
+
+        document.getElementById('next-review-button').addEventListener('click', () => {
+            currentReview = (currentReview + 1) % reviewCards.length;
+            showReview(currentReview);
+        });
+
+
+        document.getElementById('prev-review-button').addEventListener('click', () => {
+            currentReview = (currentReview - 1 + reviewCards.length) % reviewCards.length;
+            showReview(currentReview);
+        });
+
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+
+        // Sticky header on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            const scrollTop = window.scrollY;
+            const scrollThreshold = 50;
+            if (scrollTop > scrollThreshold) {
+                header.classList.add('sticky');
+            } else {
+                header.classList.remove('sticky');
+            }
+        });
+
+
+        // Handle tab switching
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const menuCategories = document.querySelectorAll('.menu-category');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+
+                tabButtons.forEach(tab => tab.classList.remove('active'));
+                menuCategories.forEach(category => category.classList.remove('active'));
+
+                button.classList.add('active');
+                const categoryToShow = button.getAttribute('data-category');
+                document.querySelector(`.${categoryToShow}`).classList.add('active');
+            });
+        });
+
+        // Set the initial active tab
+        document.querySelector('.tab-button[data-category="appetizers"]').click();
+
+
+        // JavaScript for the hover effect
+        const menuCards = document.querySelectorAll('.menu-item-card');
+
+        menuCards.forEach(card => {
+            const image = card.querySelector('img');
+
+            image.style.filter = 'blur(5px)';
+
+            card.addEventListener('mouseenter', () => {
+                image.style.filter = 'blur(0)';
+                card.style.transform = 'scale(1.1)';
+            });
+
+            card.addEventListener('mouseleave', () => {
+                image.style.filter = 'blur(5px)';
+                card.style.transform = 'scale(1)';
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>

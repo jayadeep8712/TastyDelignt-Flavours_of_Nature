@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic Loading</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: linear-gradient(75deg, #352c2c, black);
+        }
+
+        .loading-container {
+            text-align: center;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        .loading-text {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+
+        .loading-spinner-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            /* padding-right: 45%; /*effect spinner*/
+            /* padding-bottom: 5%;*/
+
+        }
+
+        .loading-spinner {
+            border: 5px solid #fff;
+            border-top: 5px solid transparent;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 2s linear infinite;
+        }
+
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+
+        .loading-text::before {
+            content: "";
+            display: inline-block;
+            margin-right: 10px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #00f, #f00, #0f0, #ff0);
+            background-size: 400% 400%;
+            animation: gradient-shift 5s linear infinite;
+        }
+
+        @keyframes gradient-shift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .load-img {
+            animation: pulse 2s infinite, gradient-shift 5s linear infinite;
+            transition: opacity .3s ease-in-out;
+        }
+
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loading-container">
+        <div class="load-img">
+            <img src="img/m.png" alt="TastyDelight" width="50%">
+        </div>
+        <div class="load">
+            <div class="loading-text">Loading</div>
+            <div class="loading-spinner-container">
+                <div class="loading-spinner"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        setTimeout(function () {
+            window.location.href = 'http://127.0.0.1:5500/TastyDelight-Restro.html';
+        }, 4000); 
+    </script>
+</body>
+
+
+</html>
