@@ -50,7 +50,7 @@ We wholeheartedly welcome contributions from the community. To contribute to Tas
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE), granting you the freedom to use, modify, and distribute the code, as long as you provide proper attribution and include the same license in your distribution.
+This project is licensed under the Apache License, Version 2.0, which grants you the freedom to use, modify, and distribute the code, as long as you provide proper attribution and include the same license in your distribution. 
 
 Join us in creating a delightful online experience for restaurant enthusiasts and developers alike!
 
