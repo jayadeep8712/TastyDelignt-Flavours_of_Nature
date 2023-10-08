@@ -1,5 +1,4 @@
-# TastyDelignt-Flavours_of_Nature
-# Resturant website
+# TastyDelignt-Flavours_of_Nature_Resturant website
 
 ![TastyDelight Logo](https://github.com/jayadeep8712/TastyDelignt-Flavours_of_Nature/blob/main/img/rl.png?raw=true)
 
